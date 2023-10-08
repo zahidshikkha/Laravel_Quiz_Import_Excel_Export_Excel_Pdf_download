@@ -31,7 +31,7 @@ class QuizController extends Controller
         }
         $totalquestions=$index -1;
 
-        if(Auth::user()->id)
+        if(Auth::check())
         {
             $exam = Exam::where('id',$request->exam_id)->first();
             Result::create([

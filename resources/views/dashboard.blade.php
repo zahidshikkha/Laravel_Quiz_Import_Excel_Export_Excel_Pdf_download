@@ -79,6 +79,7 @@
             <a href="/dashboard/exam" class="btn btn-primary">Exam List</a>
             <a href="/dashboard/exam/create" class="btn btn-primary">Create Exam</a>
             <a href="/result" class="btn btn-primary">Quiz Result</a>
+            <a href="/import-questions" class="btn btn-primary">Quiz Qustions Import</a>
         </div>
     </div>
 

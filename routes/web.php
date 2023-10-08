@@ -52,7 +52,7 @@ Route::post('quiz/result',[QuizController::class,'quiz_result'])->name('quiz.res
 Route::get('quiz/list',[QuizController::class,'quiz_list'])->name('quiz.list');
 
 
-Route::get('/import-questions', [ExcelContorller::class,'show']);
+Route::get('/import-questions', [ExcelContorller::class,'show'])->name('import.excel');
 Route::post('/import-questions', [ExcelContorller::class,'import']);
 
 Route::get('/result',[ResultController::class,'index'])->name('result.index');
