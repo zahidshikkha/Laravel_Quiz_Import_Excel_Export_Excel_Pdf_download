@@ -22,10 +22,18 @@ class ResultController extends Controller
     }
     public function exportpdf()
     {
+        $perPage = 16728; // Adjust this to your desired page size
+        $page = request('page', 1); // Get the current page from the request
 
-        $result = Result::all();
-        $pdf = PDF::loadView('result.pdf',['result' => $result]);
-        // download PDF file with download method
-        return $pdf->download('result.pdf');
+        // Retrieve a chunk of data for the current page
+        $results = Result::paginate($perPage, ['*'], 'page', $page);
+
+        $pdf = PDF::loadView('result.pdf', ['result' => $results]);
+
+        // Define the PDF file name including the page number
+        $pdfFileName = 'result_page_' . $page . '.pdf';
+
+        // Download the PDF file with the specified name
+        return $pdf->download($pdfFileName);
     }
 }
